@@ -1,33 +1,37 @@
 #include<iostream>
 using namespace std;
-class demo
+
+public:
+void fun(int no)
 {
-   public:
-   int i,j;
-
-   Demo()
-   {
-    i = 0;
-    j = 0;
-   }
-   Demo(int a, int b)
-   {
-      i = a;
-      j = b;
-   }
-
-   Demo(Demo &ref)
-  {
-     i = ref.i;
-     j = ref.j;
-  } 
-};
+    cout<<"inside the fun\n"; //inside call by value
+    no++;
+}
+void gun(int *ptr)
+{
+    cout<<"inside the gun \n";  //inside the call by address
+    (*ptr)++;
+}
+void sun(int &ref)
+{
+    cout<<"inside the sun\n";    //inside the call by reference
+    ref++;
+}
 int main()
 {
-    Demo obj1;
-    Demo obj2(11,21);
-    Demo obj3(obj2);
+    int i = 10;
+    int j = 10;
+    int k = 10;
 
-    
+    fun(i);
+    cout<<i<<"\n";
+
+    gun(&j);
+    cout<<j<<"\n";
+
+    sun(k);
+    cout<<k<<"\n";
+
+
     return 0;
 }
